@@ -1,0 +1,25 @@
+{
+    "title" : "Quiz Title",
+    "questions" : [
+        {
+            "type" : "spelling",
+            "answer" : "failing",
+            "answers" : [
+                "failing",
+                "faeling",
+                "feeling",
+                "flailing"
+            ]
+        },
+        {
+            "type" : "spelling",
+            "answer" : "donkey",
+            "answers" : [
+                "donkey",
+                "donkee",
+                "doonkey",
+                "donkay"
+            ]
+        }
+    ]
+}
