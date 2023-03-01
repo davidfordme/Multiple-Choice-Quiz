@@ -90,20 +90,23 @@
 	.answer {
 		padding: 3rem;
 		flex: 0 0 calc(50% - 2rem);
-		border: 2px solid var(--color-border);
-		background-color: var(--color-bg-0);
-		border-radius: 1rem;
+		border: none;
+		border-bottom: 2px solid var(--color-border);
+		background: none;
+		background-color: rgba(0, 0, 0, 0);
+		/* border-radius: 1rem; */
 		margin: 1rem;
 		color: #FFF;
 		text-align: center;
 		font-size: 2rem;
 		transition: all 0.2s ease-in-out;
-		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0);
 		text-transform: capitalize;
 	}
 
 	.deselected:hover {
 		cursor: pointer;
+		background-color: rgba(0, 0, 0, 0.1);
 		transform: scale(1.05);
 		box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
 	}
