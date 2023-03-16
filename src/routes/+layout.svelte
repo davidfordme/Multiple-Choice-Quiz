@@ -1,5 +1,5 @@
 <script>
-	import Header from './Header.svelte';
+	import Header from '$components/Header.svelte';
 	import './styles.css';
 </script>
 
@@ -19,10 +19,6 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
-
-		background: var(--color-bg-0);
-		background: linear-gradient(15deg, var(--color-bg-0) 0%, var(--color-bg-1) 100%);
-		color: #FFF;
 	}
 
 	main {
