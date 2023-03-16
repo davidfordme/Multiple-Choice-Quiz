@@ -46,9 +46,15 @@
 		width: 60px;
 		height: 60px;
 		padding: 0;
+		margin-right: auto;
+	}
+
+	.home a {
+		width: 100%;
+		height: 100%;
+		display: block;
 		overflow: hidden;
 		text-indent: -2000px;
 		background-image: url('/src/lib/images/icon.svg');
-		margin-right: auto;
 	}
 </style>
