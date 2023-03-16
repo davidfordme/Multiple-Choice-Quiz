@@ -45,11 +45,11 @@ p {
 
 a {
 	color: var(--color-theme-1);
-	text-decoration: none;
+	text-decoration: underline;
 }
 
-a:hover {
-	text-decoration: underline;
+button:hover {
+	cursor: pointer;
 }
 
 h1 {
