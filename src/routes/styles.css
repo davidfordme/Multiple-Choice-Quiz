@@ -80,7 +80,7 @@ button:focus:not(:focus-visible) {
 	outline: none;
 }
 
-button {
+button, a.button {
 	color: #FFFFFF;
 	background-color: transparent;
 	border: none;
@@ -91,7 +91,7 @@ button {
 	position: relative;
 }
 
-button::after {
+button::after, a.button::after {
 	position: absolute;
 	content: ' ';
 	display: inline-block;
@@ -106,7 +106,7 @@ button::after {
 	transition: right 0.2s ease-in-out;
 }
 
-button:hover::after {
+button:hover::after, a.button:hover::after {
 	right: 0.5rem;
 }
 

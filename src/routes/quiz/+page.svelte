@@ -23,10 +23,10 @@
 		description = selectedQuiz.description
 		questions = selectedQuiz.questions
 
-		return;
+		return
 	}
 
-	let quiz = fetchQuiz();
+	let quiz = fetchQuiz()
 
 	function startQuiz () {
 		setQuestion(0);
@@ -114,15 +114,18 @@
 					{ /each }
 					{#if showNextButton }
 						<button
+							class="next"
 							on:click|preventDefault={handleNextClick}
-							>Next Question</button>
+							>
+							Next Question
+						</button>
 					{/if}
 				</div>
 			{:else}
 				{#if showEnd }
 					<div>
 						<p>Now get on with another quiz:</p>
-						<p><a href="/all-quizzes">Quiz</a></p>
+						<p><a class="button" href="/all-quizzes">Back to Quizzes</a></p>
 					</div>
 				{:else }
 					<p class="description">{ description }</p>
@@ -170,6 +173,14 @@
 		.questions {
 			display: flex;
 			flex-wrap: wrap;
+			position: relative;
+
+			.next {
+				position: absolute;
+				top: calc(100% + 2rem);
+				left: 50%;
+				transform: translateX(-50%);
+			}
 
 			button.answer {
 				padding: 3rem;
