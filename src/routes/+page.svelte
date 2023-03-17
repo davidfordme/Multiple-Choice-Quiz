@@ -9,7 +9,7 @@
 	<div>
 		<h1>Quick Quiz</h1>
 		<p>Quick classroom quizzes for Primary Schools.</p>
-		<p>View <a href="/quiz">all quizzes</a> or <a href="/create-quiz">click to create</a> your own.</p>
+		<p>View <a href="/all-quizzes">all quizzes</a> or <a href="/create-quiz">click to create</a> your own.</p>
 	</div>
 </section>
 

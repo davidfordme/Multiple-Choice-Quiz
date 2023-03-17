@@ -70,15 +70,6 @@ pre {
 	color: var(--color-text);
 }
 
-.text-column {
-	display: flex;
-	max-width: 48rem;
-	flex: 0.6;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0 auto;
-}
-
 input,
 button {
 	font-size: inherit;
@@ -135,4 +126,8 @@ button:hover::after {
 	position: absolute;
 	width: 1px;
 	white-space: nowrap;
+}
+
+section {
+	max-width: 1500px;
 }
