@@ -89,6 +89,36 @@ button:focus:not(:focus-visible) {
 	outline: none;
 }
 
+button {
+	color: #FFFFFF;
+	background-color: transparent;
+	border: none;
+	padding: 1rem 3.4rem 1rem 1rem;
+	font-size: 1.4rem;
+	line-height: 1.4rem;
+	border-radius: 1rem;
+	position: relative;
+}
+
+button::after {
+	position: absolute;
+	content: ' ';
+	display: inline-block;
+	margin-left: 1rem;
+	background: url('/src/lib/images/arrow-right.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 1.4rem;
+	height: 1.4rem;
+	right: 1rem;
+	transition: right 0.2s ease-in-out;
+}
+
+button:hover::after {
+	right: 0.5rem;
+}
+
 @media (min-width: 720px) {
 	h1 {
 		font-size: 2.4rem;
