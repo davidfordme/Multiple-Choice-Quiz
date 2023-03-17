@@ -15,18 +15,13 @@
 
 <style>
 	section {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-items: center;
-		align-content: center;
-		flex: 1;
 		background-image: url("/src/lib/images/home/welcome-blackboard.svg");
 		background-position: center;
 		background-repeat: no-repeat;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		flex: 1;
 	}
 
 	section div {
