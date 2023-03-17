@@ -103,6 +103,7 @@
 			<h3>{ target }</h3>
 			<h1>{ title }</h1>
 			{#if question != null && !showEnd }
+				<p>Question { questionIndex + 1 } of { questions.length }</p>
 				<div class="questions">
 					{ #each questionRow as answer }
 						<button
@@ -124,10 +125,10 @@
 			{:else}
 				{#if showEnd }
 					<div>
-						<p>Now get on with another quiz:</p>
+						<img src="/src/lib/images/success.svg" alt="Well done!" />
 						<p><a class="button" href="/all-quizzes">Back to Quizzes</a></p>
 					</div>
-				{:else }
+				{:else}
 					<p class="description">{ description }</p>
 					<button
 						on:click|preventDefault={startQuiz}>

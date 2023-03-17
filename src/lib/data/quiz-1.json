@@ -5,22 +5,22 @@
     "questions" : [
         {
             "type" : "spelling",
-            "answer" : "failing",
+            "answer" : "history",
             "answers" : [
-                "failing",
-                "faeling",
-                "feeling",
-                "flailing"
+                "history",
+                "hisstory",
+                "hestory",
+                "histery"
             ]
         },
         {
             "type" : "spelling",
-            "answer" : "donkey",
+            "answer" : "surprise",
             "answers" : [
-                "donkey",
-                "donkee",
-                "doonkey",
-                "donkay"
+                "surprise",
+                "serprice",
+                "sirprise",
+                "suprise"
             ]
         }
     ]
