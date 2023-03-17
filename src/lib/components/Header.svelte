@@ -54,6 +54,11 @@
 							overflow: hidden;
 							text-indent: -2000px;
 							background-image: url('/src/lib/images/icon.svg');
+							transition: transform 0.5s ease-in-out;
+
+							&:hover {
+								transform: rotate(360deg);
+							}
 						}
 					}
 				}
