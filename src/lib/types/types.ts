@@ -13,5 +13,12 @@ export type Question = {
 
 export interface QuizFile {
     title : string;
+    target : string;
+    description : string;
     questions : Question[];
+}
+
+export interface QuizListItem {
+    title : string;
+    path : string;
 }
