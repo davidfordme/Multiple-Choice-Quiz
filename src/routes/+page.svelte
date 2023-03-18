@@ -1,4 +1,7 @@
-<script></script>
+<script>
+  import { fetchUrlForKey } from "$lib/constants";
+
+</script>
 
 <svelte:head>
 	<title>Quick Quiz</title>
@@ -9,7 +12,7 @@
 	<div>
 		<h1>Quick Quiz</h1>
 		<p>Quick classroom quizzes for Primary Schools.</p>
-		<p>View <a href="/all-quizzes">all quizzes</a> or <a href="/create-quiz">click to create</a> your own.</p>
+		<p>View <a href="{ fetchUrlForKey("all") }">all quizzes</a> or <a href="{ fetchUrlForKey("create") }">click to create</a> your own.</p>
 	</div>
 </section>
 

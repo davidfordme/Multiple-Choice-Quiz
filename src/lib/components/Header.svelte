@@ -1,19 +1,16 @@
 <script>
 	import { page } from '$app/stores';
+	import { pageTree } from '$lib/constants';
 </script>
 
 <header>
 	<nav>
 		<ul>
-			<li class="home" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/all-quizzes' ? 'page' : undefined}>
-				<a href="/all-quizzes">All Quizzes</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/create-quiz' ? 'page' : undefined}>
-				<a href="/create-quiz">Create Quiz</a>
-			</li>
+			{#each pageTree as pageElement}
+				<li class="{ pageElement.key }" aria-current={$page.url.pathname === pageElement.url ? 'page' : undefined}>
+					<a href="{ pageElement.url }">{ pageElement.title }</a>
+				</li>
+			{/each}
 		</ul>
 	</nav>
 </header>

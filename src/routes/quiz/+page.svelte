@@ -3,6 +3,7 @@
 	import { Shuffle } from "$lib/quiz"
 
 	import { page } from '$app/stores'
+  import { fetchUrlForKey } from '$lib/constants';
 
 	var title = ''
 	var target = ''
@@ -126,7 +127,7 @@
 				{#if showEnd }
 					<div>
 						<img src="/src/lib/images/success.svg" alt="Well done!" />
-						<p><a class="button" href="/all-quizzes">Back to Quizzes</a></p>
+						<p><a class="button" href="{ fetchUrlForKey("all") }">Back to Quizzes</a></p>
 					</div>
 				{:else}
 					<p class="description">{ description }</p>
