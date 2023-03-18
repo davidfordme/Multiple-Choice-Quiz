@@ -143,12 +143,6 @@
 
 <style lang="scss">
 	section {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-		text-align: center;
-
 		h3 {
 			font-size: 1.4rem;
 			margin: 0;

@@ -53,6 +53,7 @@ button:hover {
 h1 {
 	font-size: 2rem;
 	text-align: center;
+	text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 h2 {
@@ -130,4 +131,21 @@ button:hover::after, a.button:hover::after {
 
 section {
 	max-width: 1500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+	text-align: center;
+}
+
+form {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	width: 100%;
+	max-width: 400px;
+}
+
+form label p {
+	margin: 2rem 0 1rem 0
 }
