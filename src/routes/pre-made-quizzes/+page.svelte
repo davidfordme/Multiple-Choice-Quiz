@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { QuizListItem } from '$lib/types/types'
+	import { fetchUrlForKey } from "$lib/constants"
 
 	const quizFiles = import.meta.glob('$data/*.json')
-	let quizes : QuizListItem[] = [];
+	let quizes : QuizListItem[] = []
 
 	function pathToId(path : string){
 		return path.replace('.json', '').replace('/src/lib/data/', '')
@@ -26,25 +27,24 @@
 
 <section>
 	<div>
-		<h1>Quizzes</h1>
+		<h1>Pre Made Quizzes</h1>
+		<img src="/src/lib/images/questions.svg" alt="Quizzes" />
 		{#if quizes.length }
 			<p>Select from one of our pre-made quizzes below:</p>
 			{#each quizes as quiz}
-				<p><a href="/quiz?id={ quiz.path }">{ quiz.title }</a></p>
+				<p><a class="button" href="/quiz?id={ quiz.path }">{ quiz.title }</a></p>
 			{/each}
 		{:else }
-			<p>There are currently no quizes. Please check back again soon, or <a href="/create-quiz" title="Create your quiz">click here</a> to create your own.</p>
+			<p>There are currently no quizes. Please check back again soon, or <a href="{ fetchUrlForKey("create") }" title="Create your quiz">click here</a> to create your own.</p>
 		{/if}
 	</div>
 </section>
 
-<style>
+<style lang="scss">
 	section {
-		display: flex;
-		flex: 1;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
+		a.button {
+			text-decoration: none;
+		}
 	}
 
 	h1 {
