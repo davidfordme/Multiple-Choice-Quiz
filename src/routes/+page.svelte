@@ -18,13 +18,9 @@
 
 <style>
 	section {
-		background-image: url("/src/lib/images/home/welcome-blackboard.svg");
+		background-image: url("/src/lib/images/welcome.svg");
 		background-position: center;
 		background-repeat: no-repeat;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
 	}
 
 	section div {
