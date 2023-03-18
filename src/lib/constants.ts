@@ -28,7 +28,7 @@ export const pageTree : Page[] = [
     },
     {
         key : 'create',
-        title : "Create Quiz",
+        title : "Create a Quiz",
         url : "/create-quiz"
     }
 ]
