@@ -12,9 +12,9 @@
 <section>
 	<div>
 		<h1>My Quizzes</h1>
-		<p>A list of all the quizzes saved to your machine.</p>
+		<img src="/src/lib/images/my-quizzes.svg" alt="My Quizzes" />
+		<p>A list of all the quizzes saved to your computer:</p>
 		{#if quizzes.length }
-			<p>Select from one of our pre-made quizzes below:</p>
 			{#each quizzes as quiz}
 				<p><a class="button" href="/quiz?key={ quiz.id }">{ quiz.title }</a></p>
 			{/each}
