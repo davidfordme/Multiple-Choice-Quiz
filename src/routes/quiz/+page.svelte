@@ -124,6 +124,7 @@
 			<h1>{ title }</h1>
 			{#if question != null && !showEnd }
 				<p>Question { questionIndex + 1 } of { questions.length }</p>
+				{#if question.question }<h2>{ question.question }</h2>{/if}
 				<div class="questions">
 					{ #each questionRow as answer }
 						<button
@@ -146,17 +147,17 @@
 				{#if showEnd }
 					<div>
 						<img src="/src/lib/images/success.svg" alt="Well done!" />
-						<p><a class="button" href="{ fetchUrlForKey("all") }">Back to Quizzes</a></p>
+						<p><a class="button" href="{ (editLink) ? fetchUrlForKey("mine") : fetchUrlForKey("all") }">Back to Quizzes</a></p>
 					</div>
 				{:else}
-					{#if editLink }
-						<p>(<a href="{ editLink }">Edit</a>)</p>
-					{/if }
 					<p class="description">{ description }</p>
 					<button
 						on:click|preventDefault={startQuiz}>
 						Click to get started
 					</button>
+					{#if editLink }
+						<p>(<a href="{ editLink }">Edit</a>)</p>
+					{/if }
 				{/if}
 			{/if}
 		{/await}
@@ -165,16 +166,31 @@
 
 <style lang="scss">
 	section {
-		h3 {
-			font-size: 1.4rem;
-			margin: 0;
-		}
-
 		h1 {
 			margin: 0;
 			font-size: 2.5rem;
 			text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 		}
+
+		h2 {
+			margin: 2rem 0;
+			font-size: 2rem;
+			&:before {
+				content: '';
+				display: block;
+				width: 4rem;
+				height: 0.25rem;
+				background: rgba(255, 255, 255, 0.5);
+				border-radius: 0.5rem;
+				margin: 3rem auto;
+			}
+		}
+
+		h3 {
+			font-size: 1.4rem;
+			margin: 0;
+		}
+
 
 		.description {
 			&:after {
@@ -214,7 +230,6 @@
 				font-size: 2rem;
 				transition: all 0.2s ease-in-out;
 				box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0);
-				text-transform: capitalize;
 				&:after {
 					display: none;
 				}

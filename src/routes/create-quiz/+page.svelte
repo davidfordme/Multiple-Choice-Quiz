@@ -31,6 +31,7 @@
 	}
 
 	let canSendForm = false
+	validateQuiz()
 	
 	function validateQuiz() {
 		if (quiz.title !== '' &&
@@ -55,6 +56,7 @@
 	function handleAddQuestion() {
 		let newQuestion : Question = {
 			type : 'spelling',
+			question : '',
 			answer : '',
 			answers : []
 		}
@@ -112,6 +114,19 @@
 					<div class="question">
 						<h2>Question { index + 1 }</h2>
 						{#if question }
+							<Select
+								name="type"
+								bind:value={ question.type }>
+								<option value="spelling">Spelling</option>
+								<option value="multi">Multiple Choice Quiz</option>
+							</Select>	
+							{#if question.type === 'multi'}
+								<Input
+									name="question"
+									placeholder="What is the question?"
+									bind:value={ question.question }
+									/>
+							{/if}
 							<Input
 								name="question"
 								placeholder="Answer 1 (Correct answer)"
@@ -168,7 +183,7 @@
 			border: 0.2rem solid rgba(255, 255, 255, 0.45);
 
 			h2 {
-				margin: 0;
+				margin-top: 0;
 				font-size: 1.4rem;
 			}
 

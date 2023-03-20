@@ -7,6 +7,7 @@ export type QuestionRow = {
 
 export type Question = {
     type : string,
+    question : string,
     answer : string,
     answers : string[]
 } | null
