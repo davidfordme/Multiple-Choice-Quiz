@@ -71,6 +71,14 @@ pre {
 	color: var(--color-text);
 }
 
+.question label input {
+	margin-top: 1rem;
+}
+
+.question label:first-child input {
+	margin-top: 0rem;
+}
+
 input,
 button {
 	font-size: inherit;
