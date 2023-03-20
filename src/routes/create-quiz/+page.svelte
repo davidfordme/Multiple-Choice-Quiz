@@ -23,7 +23,10 @@
 		if(key) {
 			quizId = key
 			const loadedQuiz = fetchQuizFromStorage(key)
-			if(loadedQuiz) quiz = loadedQuiz
+			if(loadedQuiz) {
+				quiz = loadedQuiz
+				questions = quiz.questions
+			}
 		}
 	}
 

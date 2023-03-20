@@ -2,7 +2,7 @@
 	import type { QuestionRow, Question } from '$lib/types/types'
 	import { page } from '$app/stores'
 	import { Shuffle } from "$lib/quiz"
-  	import { fetchUrlForKey } from '$lib/constants';
+  	import { fetchUrlForKey } from '$lib/constants'
 	import { fetchQuizFromStorage } from "$lib/storable"
 
 	var title = ''
@@ -14,6 +14,7 @@
 	var questionIndex = 0
 	var showNextButton = false
 	var showEnd = false
+	var editLink = ''
     
     async function fetchQuiz() {
 		if($page.url.searchParams.get('id')) {
@@ -31,6 +32,7 @@
 			//quiz from local storage
 			const key = $page.url.searchParams.get('key')
 			const selectedQuiz = fetchQuizFromStorage(key ?? null)
+			editLink = fetchUrlForKey("create") + '?key=' + key
 
 			if(selectedQuiz) {
 				title = selectedQuiz.title
@@ -147,6 +149,9 @@
 						<p><a class="button" href="{ fetchUrlForKey("all") }">Back to Quizzes</a></p>
 					</div>
 				{:else}
+					{#if editLink }
+						<p>(<a href="{ editLink }">Edit</a>)</p>
+					{/if }
 					<p class="description">{ description }</p>
 					<button
 						on:click|preventDefault={startQuiz}>
