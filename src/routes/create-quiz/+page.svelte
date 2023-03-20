@@ -44,7 +44,7 @@
 
 	function handleAddQuestion() {
 		let newQuestion : Question = {
-			type : '',
+			type : 'spelling',
 			answer : '',
 			answers : []
 		}
