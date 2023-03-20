@@ -72,7 +72,7 @@
 			let selectedAnswer = questionRow[event.target.getAttribute('data-index')]
 			selectedAnswer.selected = true
 			
-			if(event.target.innerText.toLowerCase() == question.answer) {
+			if(event.target.innerText.toLowerCase() == question.answer.toLowerCase()) {
 				revealAllAnswers()
 				selectedAnswer.correct = true
 			} else {
@@ -90,17 +90,18 @@
 
 	function revealAllAnswers () {
         if(question) {
-			
-			questionRow.map((question, index) => {
-				question.selected = true
-				question.correct = false
+			questionRow.map((thisQuestion, index) => {
+				thisQuestion.selected = true
+				thisQuestion.correct = (thisQuestion.answer.toLowerCase() == (question && question.answer.toLowerCase()))
 				
-				questionRow[index] = question
+				questionRow[index] = thisQuestion
 			})
 
 			if(questionIndex + 1 == questions.length) {
-				showEnd = true
-				title = 'Well done!'
+				setTimeout(() => {
+					showEnd = true
+					title = 'Well done!'
+				}, 1000)
 			} else {
 				showNextButton = true
 			}
