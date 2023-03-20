@@ -27,7 +27,14 @@
 		}
 	}
 
-	let canSendForm = true
+	let canSendForm = false
+	
+	function validateQuiz() {
+		if (quiz.title !== '' &&
+			quiz.description !== '' &&
+			quiz.target !== '0' &&
+			quiz.questions.length > 0) canSendForm = true
+	}
 
 	function handleFormSubmit() {
 		updateAnswers()
@@ -69,7 +76,8 @@
 		<p>Remember, all quizzes are stored in local storage on your machine (so don't clear your cache...).</p>
 
 		<form
-			on:submit|preventDefault={ handleFormSubmit } >
+			on:submit|preventDefault={ handleFormSubmit }
+			on:change={ validateQuiz }>
 			<Input
 				name="title"
 				label="Give your quiz a title:"
