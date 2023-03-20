@@ -1,4 +1,5 @@
 {
+    "id" : "quiz-1",
     "title" : "1. Splat that spelling...",
     "target" : "Year 3",
     "description" : "A quick spelling test.",
@@ -21,6 +22,26 @@
                 "serprice",
                 "sirprise",
                 "suprise"
+            ]
+        },
+        {
+            "type" : "spelling",
+            "answer" : "enough",
+            "answers" : [
+                "enough",
+                "enuff",
+                "inuff",
+                "enouff"
+            ]
+        },
+        {
+            "type" : "spelling",
+            "answer" : "caught",
+            "answers" : [
+                "caught",
+                "cort",
+                "cought",
+                "caurt"
             ]
         }
     ]

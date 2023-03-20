@@ -12,6 +12,7 @@ export type Question = {
 } | null
 
 export interface QuizFile {
+    id : string;
     title : string;
     target : string;
     description : string;
