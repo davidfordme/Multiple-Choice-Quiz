@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { QuestionRow, Question } from '$lib/types/types'
-	import { Shuffle } from "$lib/quiz"
-
 	import { page } from '$app/stores'
-  import { fetchUrlForKey } from '$lib/constants';
+	import { Shuffle } from "$lib/quiz"
+  	import { fetchUrlForKey } from '$lib/constants';
+	import { fetchQuizFromStorage } from "$lib/storable"
 
 	var title = ''
 	var target = ''
@@ -16,13 +16,29 @@
 	var showEnd = false
     
     async function fetchQuiz() {
-		const quizFilePath : string = '/src/lib/data/' + $page.url.searchParams.get('id') + '.json'
-		const selectedQuiz = await import(/* @vite-ignore */ quizFilePath)
+		if($page.url.searchParams.get('id')) {
+			//pre made quiz, load from json
+			const quizFilePath : string = '/src/lib/data/' + $page.url.searchParams.get('id') + '.json'
+			const selectedQuiz = await import(/* @vite-ignore */ quizFilePath)
 
-		title = selectedQuiz.title
-		target = selectedQuiz.target
-		description = selectedQuiz.description
-		questions = selectedQuiz.questions
+			title = selectedQuiz.title
+			target = selectedQuiz.target
+			description = selectedQuiz.description
+			questions = selectedQuiz.questions
+		}
+
+		if($page.url.searchParams.get('key')) {
+			//quiz from local storage
+			const key = $page.url.searchParams.get('key')
+			const selectedQuiz = fetchQuizFromStorage(key ?? null)
+
+			if(selectedQuiz) {
+				title = selectedQuiz.title
+				target = selectedQuiz.target
+				description = selectedQuiz.description
+				questions = selectedQuiz.questions
+			}
+		}
 
 		return
 	}
