@@ -1,11 +1,11 @@
 <script lang="ts">
 	export let value : string;
 	export let name : string;
-	export let label : string;
+	export let label : string = '';
 </script>
 
 <label for="{ name }">
-	<p>{ label }</p>
+	{#if label }<p>{ label }</p>{/if}
 	<select name="target" bind:value>
 		<slot></slot>
 	</select>
