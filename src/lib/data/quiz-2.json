@@ -6,6 +6,7 @@
     "questions" : [
         {
             "type" : "spelling",
+            "question": "",
             "answer" : "failing",
             "answers" : [
                 "failing",
@@ -16,6 +17,7 @@
         },
         {
             "type" : "spelling",
+            "question": "",
             "answer" : "donkey",
             "answers" : [
                 "donkey",

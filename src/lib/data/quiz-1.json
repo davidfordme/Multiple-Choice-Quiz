@@ -1,47 +1,95 @@
 {
-    "id" : "quiz-1",
-    "title" : "1. Splat that spelling...",
-    "target" : "Year 3",
-    "description" : "A quick spelling test.",
-    "questions" : [
+    "id":"quiz-1",
+    "title":"Mrs Ford's Quiz",
+    "description":"a really good one",
+    "target":"Year 3",
+    "questions":[
         {
-            "type" : "spelling",
-            "answer" : "history",
-            "answers" : [
-                "history",
-                "hisstory",
-                "hestory",
-                "histery"
+            "type":"spelling",
+            "question" : "",
+            "answer":"station",
+            "answers":[
+                "station",
+                "stashun",
+                "stasion",
+                "staition"
             ]
         },
         {
-            "type" : "spelling",
-            "answer" : "surprise",
-            "answers" : [
-                "surprise",
-                "serprice",
-                "sirprise",
-                "suprise"
+            "type":"spelling",
+            "question" : "",
+            "answer":"picture",
+            "answers":[
+                "picture",
+                "picchur",
+                "piccher",
+                "pictchur"
             ]
         },
         {
-            "type" : "spelling",
-            "answer" : "enough",
-            "answers" : [
-                "enough",
-                "enuff",
-                "inuff",
-                "enouff"
+            "type":"spelling",
+            "question" : "",
+            "answer":"tough",
+            "answers":[
+                "tough",
+                "tuff",
+                "touff",
+                "touph"
             ]
         },
         {
-            "type" : "spelling",
-            "answer" : "caught",
-            "answers" : [
-                "caught",
-                "cort",
-                "cought",
-                "caurt"
+            "type":"spelling",
+            "question" : "",
+            "answer":"went",
+            "answers":[
+                "went",
+                "whent",
+                "wehnt",
+                "wennt"
+            ]
+        },
+        {
+            "type":"spelling",
+            "question" : "",
+            "answer":"whisper",
+            "answers":[
+                "whisper",
+                "wisper",
+                "wispa",
+                "whispur"
+            ]
+        },
+        {
+            "type":"spelling",
+            "question": "",
+            "answer":"trouble",
+            "answers":[
+                "trouble",
+                "truble",
+                "troubel",
+                "trubbel"
+            ]
+        },
+        {
+            "type":"spelling",
+            "question": "",
+            "answer":"Egypt",
+            "answers":[
+                "Egypt",
+                "Ejipt",
+                "Eigypt",
+                "Egipt"
+            ]
+        },
+        {
+            "type":"spelling",
+            "question": "",
+            "answer":"really",
+            "answers":[
+                "really",
+                "realy",
+                "railly",
+                "raelly"
             ]
         }
     ]
