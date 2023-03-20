@@ -11,6 +11,8 @@
 		placeholder="{ placeholder }"
 		name="{ name }"
 		type="text"
+		autocomplete="off"
+		spellcheck="false"
 		bind:value />
 </label>
 
