@@ -35,7 +35,6 @@
 	
 	function validateQuiz() {
 		if (quiz.title !== '' &&
-			quiz.description !== '' &&
 			quiz.target !== '0' &&
 			quiz.questions.length > 0) canSendForm = true
 	}
