@@ -120,11 +120,9 @@
 		{#await quiz }
 			<p>fetching quiz</p>
 		{:then quiz}
-			<h3>{ target }</h3>
-			<h1>{ title }</h1>
 			{#if question != null && !showEnd }
 				<p>Question { questionIndex + 1 } of { questions.length }</p>
-				{#if question.question }<h2>{ question.question }</h2>{/if}
+				{#if question.question }<h1>{ question.question }</h1>{/if}
 				<div class="questions">
 					{ #each questionRow as answer }
 						<button
@@ -145,11 +143,16 @@
 				</div>
 			{:else}
 				{#if showEnd }
+					<h3>{ target }</h3>
+					<h1>{ title }</h1>
 					<div>
 						<img src="/src/lib/images/success.svg" alt="Well done!" />
 						<p><a class="button" href="{ (editLink) ? fetchUrlForKey("mine") : fetchUrlForKey("all") }">Back to Quizzes</a></p>
 					</div>
 				{:else}
+					<img src="/src/lib/images/quiz-start.svg" alt="Click to get started!" />
+					<h3>{ target }</h3>
+					<h1>{ title }</h1>
 					<p class="description">{ description }</p>
 					<button
 						on:click|preventDefault={startQuiz}>
@@ -241,13 +244,37 @@
 					box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
 				}
 
+				&.success,
+				&.failed {
+					&:after {
+						content: "";
+						background-size: contain;
+						background-position: bottom right;
+						display: block;
+						position: absolute;
+						bottom: 1rem;
+						right: 1rem;
+						height: 4rem;
+						width: 4rem;
+						opacity: 0.5;
+					}
+				}
+
 				&.success {
 					background: var(--color-success);
+					&:after {
+						background-image: url('/src/lib/images/tick.svg');
+					}
 				}
 
 				&.failed {
 					background: var(--color-failed);
 					text-decoration: line-through;
+
+					&:after {
+						background-image: url('/src/lib/images/cross.svg');
+						opacity: 0.15;
+					}
 				}
 
 			}
