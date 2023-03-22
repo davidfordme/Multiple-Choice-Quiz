@@ -9,6 +9,10 @@ export function writeToStorage(key : string, content: any) {
     if(browser) localStorage[key] = JSON.stringify(content)
 }
 
+export function deleteFromStorage(key : string) {
+    if(browser) localStorage.removeItem(key)
+}
+
 export function fetchAllQuizzesFromStorage() : QuizFile[] {
     let quizzes : QuizFile[] = []
     if(browser) {
