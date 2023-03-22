@@ -27,7 +27,7 @@
 
 <section>
 	<div>
-		<img src="/src/lib/images/questions.svg" alt="Quizzes" />
+		<img src="/images/questions.svg" alt="Quizzes" />
 		<h1>Pre Made Quizzes</h1>
 		{#if quizzes.length }
 			<p>Select from one of our pre-made quizzes below:</p>

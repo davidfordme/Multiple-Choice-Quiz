@@ -16,7 +16,7 @@
 
 <section>
 	<div>
-		<img src="/src/lib/images/my-quizzes.svg" alt="My Quizzes" />
+		<img src="/images/my-quizzes.svg" alt="My Quizzes" />
 		<h1>My Quizzes</h1>
 		<p>A list of all the quizzes saved to your computer:</p>
 		{#if quizzes.length }

@@ -146,11 +146,11 @@
 					<h3>{ target }</h3>
 					<h1>{ title }</h1>
 					<div>
-						<img src="/src/lib/images/success.svg" alt="Well done!" />
+						<img src="/images/success.svg" alt="Well done!" />
 						<p><a class="button" href="{ (editLink) ? fetchUrlForKey("mine") : fetchUrlForKey("all") }">Back to Quizzes</a></p>
 					</div>
 				{:else}
-					<img src="/src/lib/images/quiz-start.svg" alt="Click to get started!" />
+					<img src="/images/quiz-start.svg" alt="Click to get started!" />
 					<h3>{ target }</h3>
 					<h1>{ title }</h1>
 					<p class="description">{ description }</p>
