@@ -2,7 +2,7 @@
 	import type { QuizListItem } from '$lib/types/types'
 	import { fetchUrlForKey } from "$lib/constants"
 
-	const quizFiles = import.meta.glob('$data/*.json')
+	const quizFiles = import.meta.glob('/src/lib/data/*.json')
 	let quizzes : QuizListItem[] = []
 
 	function pathToId(path : string){
