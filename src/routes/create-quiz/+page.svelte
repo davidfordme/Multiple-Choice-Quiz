@@ -1,13 +1,17 @@
 <script lang="ts">
 	import type { Question, QuizFile } from "$lib/types/types"
 	import { page } from '$app/stores'
-	import { writeToStorage, fetchQuizFromStorage } from "$lib/storable"
+	import { goto } from "$app/navigation"
+	import { writeToStorage, deleteFromStorage, fetchQuizFromStorage } from "$lib/storable"
 	import Input from "$components/Input.svelte"
 	import Select from "$components/Select.svelte"
-  
+	import Modal from "$components/Modal.svelte"
+
 	let quizId = 'quiz-' + Math.random().toString(16).slice(2)
 	let key : string | null = null
 	let questions : Question[] = []
+	let isSaveVisible = false
+	let isDeleteVisible = false
 
 	let quiz : QuizFile = {
 		id : quizId,
@@ -42,6 +46,7 @@
 	function handleFormSubmit() {
 		updateAnswers()
 		writeToStorage(quizId, quiz)
+		isSaveVisible = true
 	}
 
 	function updateAnswers() {
@@ -67,6 +72,15 @@
 	function handleDeleteQuestion(index : number) {
 		questions.splice(index, 1)
 		questions = questions
+	}
+
+	function handleDeleteQuiz() {
+		isDeleteVisible = true
+	}
+
+	function handleDeleteConfirmation() {
+		deleteFromStorage(quizId)
+		goto('/my-quizzes?deleted=true')
 	}
 </script>
   
@@ -149,7 +163,7 @@
 						{/if}
 						<button 
 							on:click|preventDefault={ () => handleDeleteQuestion(index) }
-							class="delete"
+							class="deleteQuestion"
 							title="Delete Question"
 							>Delete</button>
 					</div>
@@ -167,8 +181,27 @@
 				disabled="{ !canSendForm }">
 				Save Quiz
 			</button>
+
+			<button
+				on:click|preventDefault={ handleDeleteQuiz }
+				class="delete">
+				Delete Quiz
+			</button>
 		</form>
 	</div>
+	<Modal
+		title="Quiz Saved!"
+		description="<a href='/quiz?key={ quizId }'>Click here</a> to view the updated quiz"
+		bind:isVisible={ isSaveVisible }
+		autoDismisses={ false }
+		/>
+	<Modal
+		title="Delete Quiz?"
+		description="Are you sure you want to delete this quiz?"
+		bind:isVisible={ isDeleteVisible }
+		requiresConfirmation={ true }
+		confirmation={ handleDeleteConfirmation }
+		/>
 </section>
 
 <style lang="scss">
@@ -187,12 +220,12 @@
 			}
 
 			&:hover {
-				button.delete {
+				button.deleteQuestion {
 					background-position: center;
 				}
 			}
 
-			button.delete {
+			button.deleteQuestion {
 				position: absolute;
 				left: calc(100% + 0.2rem);
 				top: 50%;
@@ -235,6 +268,26 @@
 					height: 1.4rem;
 					right: 1rem;
 					transition: right 0.2s ease-in-out;
+				}
+			}
+
+			&.delete {
+				text-align: left;
+				font-size: 1rem;
+				margin-left: auto;
+				color: var(--color-failed);
+				width: 100%;
+				text-align: center;
+				padding: 0;
+				margin-top: 1rem;
+
+				&:after {
+					background-image: url('/src/lib/images/trash.svg');
+					background-size: 1rem;
+					display: inline-block;
+					position: relative;
+					height: 20px;
+					top: 0.2rem;
 				}
 			}
 
