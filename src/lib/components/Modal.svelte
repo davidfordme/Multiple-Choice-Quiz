@@ -18,7 +18,6 @@
 	}
 
 	function handleClose(event: KeyboardEvent | null) {
-		console.log("handleClose")
 		if(event && typeof event.key !== 'undefined' && (event.key != 'Enter' && event.key != 'Escape')) return
 		if(timeout) clearTimeout(timeout)
 
