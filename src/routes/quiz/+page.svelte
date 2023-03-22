@@ -15,17 +15,27 @@
 	var showNextButton = false
 	var showEnd = false
 	var editLink = ''
+
+	function pathToId(path : string){
+		return path.replace('.json', '').replace('/src/lib/data/', '')
+	}
     
     async function fetchQuiz() {
 		if($page.url.searchParams.get('id')) {
 			//pre made quiz, load from json
-			const quizFilePath : string = '/src/lib/data/' + $page.url.searchParams.get('id') + '.json'
-			const selectedQuiz = await import(/* @vite-ignore */ quizFilePath)
+			const quizFiles = import.meta.glob('/src/lib/data/*.json')		
+			const quizId = $page.url.searchParams.get('id')
 
-			title = selectedQuiz.title
-			target = selectedQuiz.target
-			description = selectedQuiz.description
-			questions = selectedQuiz.questions
+			for (const path in quizFiles) {
+				if(pathToId(path) == quizId) {
+					quizFiles[path]().then((quizData : any) => {
+						title = quizData.title
+						target = quizData.target
+						description = quizData.description
+						questions = quizData.questions
+					})
+				}
+			}
 		}
 
 		if($page.url.searchParams.get('key')) {
