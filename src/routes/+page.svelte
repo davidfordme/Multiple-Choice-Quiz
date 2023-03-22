@@ -18,7 +18,7 @@
 
 <style>
 	section {
-		background-image: url("/src/lib/images/welcome.svg");
+		background-image: url("/images/welcome.svg");
 		background-position: center;
 		background-repeat: no-repeat;
 	}
