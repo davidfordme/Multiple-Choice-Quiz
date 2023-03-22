@@ -1,8 +1,13 @@
 <script lang="ts">
-	  import { fetchUrlForKey } from "$lib/constants"
-	  import { fetchAllQuizzesFromStorage } from "$lib/storable"
+	import { page } from '$app/stores'
+	import { fetchUrlForKey } from "$lib/constants"
+	import { fetchAllQuizzesFromStorage } from "$lib/storable"
+	import Modal from "$components/Modal.svelte"
 
-	  const quizzes = fetchAllQuizzesFromStorage()
+	const quizzes = fetchAllQuizzesFromStorage()
+
+	let isDeletedVisible = false
+	if($page.url.searchParams.get('deleted')) isDeletedVisible = true
 </script>
 
 <svelte:head>
@@ -22,6 +27,13 @@
 			<p>Not created any quizzes yet? <a href={ fetchUrlForKey('create') } title="Create a quiz">Click here</a> to create your first.</p>
 		{/if}
 	</div>
+	
+	<Modal
+		title="Quiz Deleted!"
+		description="Your quiz has been deleted from your machine"
+		bind:isVisible={ isDeletedVisible }
+		autoDismisses={ false }
+		/>
 </section>
 
 <style lang="scss">
