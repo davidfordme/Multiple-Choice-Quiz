@@ -6,6 +6,7 @@
 	import Input from "$components/Input.svelte"
 	import Select from "$components/Select.svelte"
 	import Modal from "$components/Modal.svelte"
+	import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3"
 
 	let quizId = 'quiz-' + Math.random().toString(16).slice(2)
 	let key : string | null = null
@@ -46,7 +47,45 @@
 	function handleFormSubmit() {
 		updateAnswers()
 		writeToStorage(quizId, quiz)
+		uploadQuiz()
 		isSaveVisible = true
+	}
+
+	async function uploadQuiz() {
+		
+		let key = ""
+		let secret = ""
+
+		if(import.meta.env.VITE_aws_access_key) key = import.meta.env.VITE_aws_access_key
+		if(import.meta.env.VITE_aws_secret_key) secret = import.meta.env.VITE_aws_secret_key
+
+		if(typeof process != 'undefined') {
+			if(process.env.aws_access_key) key = process.env.aws_access_key
+			if(process.env.aws_secret_key) secret = process.env.aws_secret_key
+		}
+		
+		const client = new S3Client({
+			region:'eu-west-2',
+			credentials:{
+				accessKeyId: key,
+				secretAccessKey: secret
+			},
+		});
+
+		const command = new PutObjectCommand({
+			Bucket: "multiple-choise-quiz",
+			Key: quizId + ".json",
+			Body: JSON.stringify(quiz),
+		});
+
+		console.log(command)
+
+		try {
+			const response = await client.send(command);
+			console.log(response);
+		} catch (err) {
+			console.error(err);
+		}
 	}
 
 	function updateAnswers() {
